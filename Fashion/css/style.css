@@ -3,7 +3,7 @@
 ----------------------------------------------------------------*/
 
 @font-face {
-  font-family: "Sans";
+  font-family: "PT Sans";
   src: url("../fonts/PT-Sans-Regular.woff2") format("woff2"), url("../fonts/PT-Sans-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -11,7 +11,7 @@
 }
 
 @font-face {
-  font-family: "Serif";
+  font-family: "PT Serif";
   src: url("../fonts/PT-Serif-Regular.woff2") format("woff2"), url("../fonts/PT-Serif-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -19,7 +19,7 @@
 }
 
 @font-face {
-  font-family: "Serif";
+  font-family: "PT Serif";
   src: url("../fonts/PT-Serif-Bold.woff2") format("woff2"), url("../fonts/PT-Serif-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
@@ -27,7 +27,7 @@
 }
 
 @font-face {
-  font-family: "Serif";
+  font-family: "PT Serif";
   src: url("../fonts/PT-Serif-Italic.woff2") format("woff2"), url("../fonts/PT-Serif-Italic.woff") format("woff");
   font-weight: 400;
   font-style: italic;
@@ -35,7 +35,7 @@
 }
 
 @font-face {
-  font-family: "Serif";
+  font-family: "HK Grotesk";
   src: url("../fonts/HK-Grotesk-Regular.woff2") format("woff2"), url("../fonts/HK-Grotesk-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -49,12 +49,8 @@
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  border: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  outline: none;
 }
 
 ul li,
@@ -123,11 +119,13 @@ input[type='search']::-webkit-search-results-decoration {
 html,
 body {
   height: 100%;
-  color: #333;
-  font-family: Gilroy, Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 26px;
+  margin: 0;
+  color: #666;
+  font-family: "PT Sans", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  background-color: #fff;
 }
 
 body.lock {
@@ -147,7 +145,7 @@ body.lock {
 }
 
 .container {
-  max-width: 1170px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -218,10 +216,207 @@ body.lock {
   transition: all .3s;
 }
 
+/*----------------------------------------------------------------
+   Main Header
+----------------------------------------------------------------*/
+
+.main-header {
+  padding: 0 80px;
+}
+
+.main-header__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  max-width: 1760px;
+  margin: 0 auto;
+}
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nav__item {
+  margin-right: 35px;
+}
+
+.nav__item:last-child {
+  margin-right: 0;
+}
+
+.nav__link {
+  display: block;
+  color: #171717;
+  font-size: 16px;
+  font-family: "PT Serif", serif;
+  -webkit-transition: color .3s;
+  -o-transition: color .3s;
+  transition: color .3s;
+}
+
+.nav__link:hover {
+  color: #C9A96E;
+}
+
+.nav__link:focus {
+  outline: 2px solid #C9A96E;
+  outline-offset: 3px;
+}
+
+.logo {
+  position: relative;
+  display: block;
+  color: #171717;
+  font-family: "PT Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 33px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.logo span {
+  position: relative;
+  z-index: 1;
+}
+
+.logo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  z-index: 0;
+  width: 100%;
+  height: 6px;
+  -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+          transform: translateY(-5px);
+  background-color: #C9A96E;
+  opacity: .35;
+  -webkit-transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, -webkit-transform .3s;
+  -o-transition: opacity .3s, transform .3s;
+  transition: opacity .3s, transform .3s;
+  transition: opacity .3s, transform .3s, -webkit-transform .3s;
+}
+
+.logo:hover::after {
+  opacity: .5;
+  -webkit-transform: translateY(-2px);
+      -ms-transform: translateY(-2px);
+          transform: translateY(-2px);
+}
+
+.logo:focus {
+  outline: 2px solid #C9A96E;
+  outline-offset: 3px;
+}
+
+/*----------------------------------------------------------------
+    Burger
+----------------------------------------------------------------*/
+
+.burger {
+  position: relative;
+  display: none;
+  width: 25px;
+  height: 16px;
+  font-size: 0;
+  color: transparent;
+  cursor: pointer;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  background-color: transparent;
+}
+
+.burger::before,
+.burger:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.burger::before {
+  top: -1px;
+}
+
+.burger::after {
+  bottom: 0;
+}
+
+.burger span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  margin-top: -1px;
+  background-color: #fff;
+}
+
+.burger.active span {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+
+.burger.active::before,
+.burger.active:after {
+  width: 70%;
+}
+
+.burger.active::before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 7px;
+}
+
+.burger.active::after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  bottom: 8px;
+}
+
 @media (min-width: 768px) {
   .btn:hover,
   .btn:focus {
     -webkit-box-shadow: 0 0 10px #999;
             box-shadow: 0 0 10px #999;
+  }
+}
+
+@media (max-width: 1440px) {
+  .main-header {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-header {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 575px) {
+  .main-header__inner {
+    height: 60px;
   }
 }
