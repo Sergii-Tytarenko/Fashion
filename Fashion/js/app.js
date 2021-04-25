@@ -46,9 +46,24 @@ function closeBurgerNav () {
     mainHeader.classList.remove('active');
 }
 
+/* Crop text
+---------------------------------------------------------------*/
+(function () {
 
+    const cropElement = document.querySelectorAll('.crop-text'),
+          size = 21,                                          
+          endCharacter = '...';                                
 
-;
+    cropElement.forEach(el => {
+        let text = el.innerHTML.split(" ");
+
+        if (text.length > size) {
+            text = text.slice(0, size).join(" ");
+            el.innerHTML = text + endCharacter;
+        }
+    });
+
+}());;
 
 /* WebP
 -----------------------------------------------------------------------------*/
