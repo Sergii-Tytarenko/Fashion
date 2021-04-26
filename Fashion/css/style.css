@@ -1066,6 +1066,11 @@ body.lock {
   background: url("../img/icons/arrow-right.svg") right top 6px/6px 10px no-repeat;
 }
 
+.pagination__lk--active {
+  color: #a2a2a2;
+  text-decoration: underline;
+}
+
 .pagination__lk[href]:hover {
   text-decoration: underline;
 }
@@ -1121,12 +1126,11 @@ body.lock {
   display: block;
   height: 100%;
   overflow: hidden;
-}
-
-.insta__link:hover .insta__photo {
-  -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-          transform: scale(1.05);
+  -webkit-transition: -webkit-box-shadow .5s, -webkit-transform .5s;
+  transition: -webkit-box-shadow .5s, -webkit-transform .5s;
+  -o-transition: box-shadow .5s, transform .5s;
+  transition: box-shadow .5s, transform .5s;
+  transition: box-shadow .5s, transform .5s, -webkit-box-shadow .5s, -webkit-transform .5s;
 }
 
 .insta__link:focus {
@@ -1141,11 +1145,6 @@ body.lock {
      object-fit: cover;
   -o-object-position: top center;
      object-position: top center;
-  -webkit-transition: -webkit-transform .5s;
-  transition: -webkit-transform .5s;
-  -o-transition: transform .5s;
-  transition: transform .5s;
-  transition: transform .5s, -webkit-transform .5s;
 }
 
 @media (min-width: 768px) {
@@ -1153,6 +1152,15 @@ body.lock {
   .btn:focus {
     -webkit-box-shadow: 0 0 10px #999;
             box-shadow: 0 0 10px #999;
+  }
+}
+
+@media (min-width: 1020px) {
+  .insta__link:hover {
+    -webkit-transform: translate3d(0, -5px, 0);
+            transform: translate3d(0, -5px, 0);
+    -webkit-box-shadow: 5px 5px 5px #777777;
+            box-shadow: 5px 5px 5px #777777;
   }
 }
 
@@ -1175,9 +1183,29 @@ body.lock {
   }
 }
 
+@media (max-width: 1200px) {
+  .articles {
+    margin-right: 60px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .intro {
+    margin-bottom: 30px;
+  }
+
+  .articles {
+    margin-right: 0;
+  }
+
+  .aside {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .main-header__nav {
-    position: fixed;
+    position: absolute;
     top: 70px;
     left: 0;
     width: 100%;
@@ -1187,6 +1215,7 @@ body.lock {
     -o-transition: opacity .5s, visibility .3s;
     transition: opacity .5s, visibility .3s;
     background-color: #fff;
+    border-top: 2px solid #e5e5e5;
   }
 
   .main-header__nav.active {
@@ -1196,10 +1225,10 @@ body.lock {
 
   .main-header__nav .nav__list {
     padding: 10px 0;
-  }
-
-  .main-header__nav .nav__item {
-    margin: 0 auto;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .main-header__nav .nav__link {
@@ -1209,6 +1238,59 @@ body.lock {
   }
 
   .burger {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .article {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+
+  .article:last-child {
+    margin-bottom: 0;
+  }
+
+  .article--full .article__description {
+    max-width: 100%;
+  }
+
+  .article--full .article__photo {
+    margin-bottom: 0;
+  }
+
+  .article--full .article__content {
+    padding: 15px 30px;
+  }
+
+  .article--intro {
+    padding-bottom: 30px;
+  }
+
+  .article--intro .article__main-link {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  .article__photo {
+    height: 350px;
+  }
+
+  .article__header {
+    max-width: 100%;
+    margin: 0 0 15px;
+  }
+
+  .article__comments {
+    display: inline-block;
+  }
+
+  .intro {
+    min-height: 550px;
+  }
+
+  .articles {
     display: block;
   }
 }
@@ -1226,15 +1308,33 @@ body.lock {
     top: 60px;
   }
 
-  .intro {
-    min-height: 600px;
+  .article--intro .article__main-link {
+    font-size: 30px;
   }
 }
 
 @media (max-width: 420px) {
-  .article--intro .article__main-link {
-    font-size: 35px;
-    line-height: 45px;
+  .article {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .article--full {
+    background-color: #f0f0f0;
+  }
+
+  .article--full .article__content {
+    padding: 10px;
+  }
+
+  .article__content {
+    padding: 10px 0;
+  }
+
+  .pagination__lk--older,
+  .pagination__lk--next {
+    font-size: 0;
+    width: 24px;
   }
 
   .insta__wrapper {
