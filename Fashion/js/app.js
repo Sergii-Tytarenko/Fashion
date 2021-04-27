@@ -84,7 +84,7 @@ let mySwiper;
 function mobileSlider() {
 	if (window.innerWidth < 575 && instaSlider.dataset.mobile == 'false') {
 		mySwiper = new Swiper(instaSlider, {
-			slidesPerView: 1.5,
+			slidesPerView: 1.1,
             spaceBetween: 10,
             wrapperClass: 'insta__wrapper',
             slideClass: 'insta__link',
