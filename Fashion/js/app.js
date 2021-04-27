@@ -3,9 +3,9 @@
 const body = document.querySelector('body'),
       mainHeader = document.querySelector('.main-header'),
       burger = document.querySelector('.burger'),
-      burgerNav = document.querySelector('.main-header__nav'),
-      burgerNavLink = burgerNav.querySelectorAll('.nav__link');
-
+      burgerNav = document.querySelector('.main-header__group'),
+      burgerNavLink = burgerNav.querySelectorAll('a[href]'),
+      overlay = document.querySelector('.overlay');
 
 /* Burger active
    Show burger nav
@@ -33,18 +33,28 @@ for (let i = 0; i < burgerNavLink.length; i++) {
 }
 
 
+/* Overlay clck close
+---------------------------------------------------------------*/
+overlay.addEventListener('click', () => {
+    closeBurgerNav();
+})
+
+
 /* Functions of burger nav
 -----------------------------------------------------------------------------*/
 function showBurgerNav () {
     burgerNav.classList.add('active');
     mainHeader.classList.add('active');
+    overlay.classList.add('active');
 }
 
 function closeBurgerNav () {
     burger.classList.remove('active');
     burgerNav.classList.remove('active');
     mainHeader.classList.remove('active');
+    overlay.classList.remove('active');
 }
+
 
 /* Crop text
 ---------------------------------------------------------------*/
@@ -139,7 +149,6 @@ function body_lock_add(delay) {
 }
 
 
-
 /* Smoth scroll
 -----------------------------------------------------------------------------*/
 const linkNav = document.querySelectorAll('.smooth'),
@@ -166,65 +175,4 @@ for (let link of linkNav) {
 			}
 		}
 	});
-}
-
-
-
-/* Modal Windows
------------------------------------------------------------------------------*/
-let modalLinks = document.querySelectorAll('.modal-link');
-const overlay = document.querySelector('.overlay');
-
-if (modalLinks.length > 0) {
-	for (let i = 0; i < modalLinks.length; i++) {
-
-		modalLinks[i].addEventListener('click', (e) => {
-			let linkTarget = e.target.dataset.modal,
-				modalWindow = document.querySelector(`${linkTarget}`);
-
-			modalActive(modalWindow);
-		});
-		
-	}
-}
-
-
-function modalActive (target) {
-	if (target) {
-		modalShow (target);
-
-		let closeBtn = target.querySelector('.modal__close');
-
-		closeBtn.addEventListener('click', () => {
-			modalClose (target);
-		});
-
-		overlay.addEventListener('click', () => {
-			modalClose (target);
-		});
-
-		document.addEventListener('keydown', function (e) {
-			if (e.code === 'Escape') {
-				modalClose (target);
-			}
-		});
-	}
-}
-
-function modalShow (target) {
-	target.classList.add('modal-show');
-	overlay.classList.add('modal-show');
-	if (burgerNav.classList.contains('active')) {
-		closeBurgerNav ();
-	} else {
-		body_lock(0);
-	}
-}
-
-function modalClose (target) {
-	target.classList.remove('modal-show');
-	overlay.classList.remove('modal-show');
-	body_lock(0);
-}
-
-;
+};
