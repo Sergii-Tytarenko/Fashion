@@ -73,7 +73,39 @@ function closeBurgerNav () {
         }
     });
 
-}());;
+}());
+
+
+/* Insta slider
+---------------------------------------------------------------*/
+const instaSlider = document.querySelector('.insta__slider');
+let mySwiper;
+
+function mobileSlider() {
+	if (window.innerWidth < 575 && instaSlider.dataset.mobile == 'false') {
+		mySwiper = new Swiper(instaSlider, {
+			slidesPerView: 1.5,
+            spaceBetween: 10,
+            wrapperClass: 'insta__wrapper',
+            slideClass: 'insta__link',
+		});
+
+		instaSlider.dataset.mobile = 'true';
+	}
+
+	if (window.innerWidth >= 575) {
+		instaSlider.dataset.mobile = 'false';
+		if (instaSlider.classList.contains('swiper-container-initialized')) {
+			mySwiper.destroy();
+		}
+	}
+}
+
+mobileSlider()
+
+window.addEventListener('resize', () => {
+	mobileSlider();
+});;
 
 /* WebP
 -----------------------------------------------------------------------------*/
