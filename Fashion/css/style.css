@@ -720,7 +720,7 @@ body.lock {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  min-height: calc(100vh - 100px);
+  min-height: 100vh;
   padding: 50px 0 0;
   margin-bottom: 60px;
   background-color: #567e8a;
@@ -1354,7 +1354,6 @@ body.lock {
 @media (min-width: 1440px) {
   .insta__wrapper {
     gap: 20px;
-    padding: 0 20px;
   }
 }
 
@@ -1372,10 +1371,6 @@ body.lock {
 
   .main-header__inner {
     height: 70px;
-  }
-
-  .intro {
-    min-height: calc(100vh - 70px);
   }
 }
 
@@ -1500,7 +1495,7 @@ body.lock {
   }
 
   .intro {
-    min-height: 450px;
+    min-height: 480px;
   }
 
   .page {
