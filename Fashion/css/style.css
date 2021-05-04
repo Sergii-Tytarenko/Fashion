@@ -620,6 +620,7 @@ body.lock {
 }
 
 .article__main-link {
+  display: inline-block;
   color: #171717;
   font-family: "PT Serif", serif;
   font-size: 20px;
@@ -845,6 +846,7 @@ body.lock {
 }
 
 .author__link {
+  display: inline-block;
   color: #171717;
   font-size: 16px;
   font-style: normal;
