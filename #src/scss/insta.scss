@@ -1,0 +1,94 @@
+/*----------------------------------------------------------------
+    Insta
+----------------------------------------------------------------*/
+.insta {
+    padding: 0 10px;
+    // .insta__title
+    &__title {
+        margin: 0 0 40px;
+        padding: 0 15px;
+        text-align: center;
+    }
+    // .insta__address
+    &__address {
+        color: #171717;
+        font-family: "PT Serif", serif;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        transition: color .3s;
+        &:hover {
+            color: #C9A96E;
+        }
+        &:focus {
+            outline: 2px solid #C9A96E;
+        }
+    }
+    // .insta__slider
+    &__slider {
+        @media(max-width: 575px) {
+            overflow: hidden;
+        }
+        &.swiper-container-initialized {
+            .insta__link {
+                flex-shrink: 0;
+                height: 300px;
+            }
+        }
+        &.swiper-container-android {
+            .insta__link,
+            .insta-wrapper {
+                transform: translate3d(0px, 0, 0);
+            }
+        }
+        &.swiper-button-lock {
+            display: none !important;
+        }
+    }
+    // .insta__wrapper
+    &__wrapper {
+        width: 100%;
+        height: 100%;
+        box-sizing: content-box;
+        display: flex;
+        position: relative;
+
+        @media(min-width: 575px) {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-auto-rows: 260px;
+            margin: 0;
+        }
+        @media(min-width: 1440px){
+            gap: 20px;
+        }
+        @media(min-width: 1920px) {
+            grid-template-columns: repeat(auto-fit, minmax(296px, 1fr));
+            grid-auto-rows: 296px;
+        }
+    }
+    // .insta__link
+    &__link {
+        display: block;
+        height: 100%;
+        overflow: hidden;
+        transition: box-shadow .5s;
+        @media(min-width: 1020px) {
+            &:hover {
+                box-shadow: 5px 5px 5px #777777;
+            }
+        }
+        &:focus {
+            outline: 2px solid #C9A96E;
+        }
+    }
+    // .insta__photo
+    &__photo {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+    }
+}

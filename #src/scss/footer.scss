@@ -1,0 +1,105 @@
+/*----------------------------------------------------------------
+    Main Footer
+----------------------------------------------------------------*/
+.main-footer {
+    // .main-footer__container
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    // .main-footer__logo
+    &__logo {
+        margin-bottom: 60px;
+        @media(max-width: 575px) {
+            margin-bottom: 40px;
+        }
+    }
+    // .main-footer__nav
+    &__nav {
+        margin-bottom: 15px;
+        .nav__list {
+            justify-content: center;
+            margin: 0 -17px;
+        }
+        .nav__item {
+            margin: 0 17px 15px;
+        }
+        .nav__link {
+            color: #666;
+            font-family: "PT Sans";
+            font-size: 14px;
+            &:hover {
+                color: #C9A96E;
+                text-decoration: underline;
+            }
+            @media(max-width: 575px) {
+                font-size: 16px;
+            }
+        }
+    }
+    // .main-footer__social
+    &__social {
+        .social-line__col {
+            @media(max-width: 575px) {
+                margin-right: 15px;
+            }
+        }
+    }
+    // .main-footer__bottom
+    &__bottom {
+        align-self: stretch;
+        padding: 30px 0;
+
+        text-align: center;
+        border-top: 1px solid #e5e5e5;
+    }
+}
+
+.social-line {
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 305px;
+    margin: 0 auto 30px;
+    padding: 0;
+    // .social-line__col
+    &__col {
+        margin-right: 20px;
+        margin-bottom: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    // .social-line__link
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+
+        border-radius: 50%;
+        border: 1px solid #e5e5e5;
+        transition: background .3s, border-color .3s;
+        &:hover {
+            background: #c9a96e;
+            border-color: #c9a96e;
+        }
+        &:hover .social-line__icon {
+            fill: #fff;
+        }
+        &:focus {
+            outline: 2px solid #C9A96E;
+            outline-offset: 3px;
+        }
+    }
+    // .social-line__icon
+    &__icon {
+        fill: #666;
+        transition: all .5s;
+    }
+}
+

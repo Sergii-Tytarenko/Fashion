@@ -1,0 +1,67 @@
+/*----------------------------------------------------------------
+    Pagination
+----------------------------------------------------------------*/
+.pagination {
+    grid-column: span 2;
+    padding-top: 30px;
+    // .pagination__list
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 510px;
+        min-height: 50px;
+        margin: 0 auto;
+        padding: 0 25px;
+
+        border: 1px solid #e5e5e5;
+    }
+    // .pagination__item
+    &__item {
+        // .pagination__item--empty
+        &--empty {}
+    }
+    // .pagination__lk
+    &__lk {
+        display: block;
+        padding: 5px 10px;
+
+        color: #171717;
+        font-family: "HK-Grotesk-Regular", serif;
+        font-size: 16px;
+        &--older,
+        &--next {
+            font-size: 14px;
+            text-transform: uppercase;
+            @media(max-width: 420px) {
+                font-size: 0;
+                width: 24px;
+            }
+        }
+        // .pagination__lk--older
+        &--older {
+            padding: 0 0 0 14px;
+            &:not([href]) {
+                color: #a2a2a2;
+            }
+            background: url("../img/icons/arrow-left.svg") left top 6px / 6px 10px no-repeat;
+        }
+        // .pagination__lk--next
+        &--next {
+            padding: 0 14px 0 0;
+            background: url("../img/icons/arrow-right.svg") right top 6px / 6px 10px no-repeat;
+        }
+        // .pagination__lk-active 
+        &--active {
+            color: #a2a2a2;
+            text-decoration: underline;
+        }
+        &[href]:hover {
+            text-decoration: underline;
+        }
+        &:focus {
+            outline: 2px solid #C9A96E;
+        }
+    }
+}

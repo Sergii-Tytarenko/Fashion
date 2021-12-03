@@ -1,0 +1,94 @@
+@import "mixins";
+@import "fonts";
+@import "reset";
+@import "global";
+@import "forms";
+@import "header";
+@import "article";
+
+/*----------------------------------------------------------------
+    Intro
+----------------------------------------------------------------*/
+.intro {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100vh;
+    padding: 50px 0 0;
+    margin-bottom: 60px;
+    
+    background-color: #567e8a;
+    @media(max-width: 1020px) {
+        margin-bottom: 30px;
+    }
+    @media(max-width: 767px) {
+        min-height: 480px;
+    }
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,0.6811099439775911) 0%, rgba(0,0,0,0) 50%);
+    }
+    // .intro__container
+    &__container {
+        z-index: 3;
+    }
+    // .intro__preview
+    &__preview {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+
+        object-fit: cover;
+        object-position: top center;
+    }
+}
+
+/*----------------------------------------------------------------
+    Page inner 
+----------------------------------------------------------------*/
+.page {
+    margin-bottom: 100px;
+    @media(max-width: 767px) {
+        margin-bottom: 80px;
+    }
+    // .page__inner
+    &__inner {
+        display: flex;
+        margin-bottom: 80px;
+    }
+}
+
+.articles {
+    flex: 0 1 100%;
+    margin-right: 130px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    @media(max-width: 1200px) {
+        margin-right: 60px;
+    }
+    @media(max-width: 1020px) {
+        margin-right: 0;
+    }
+    @media(max-width: 767px) {
+        display: block;
+    }
+}
+@import "aside";
+@import "pagination";
+@import "insta";
+@import "footer";
